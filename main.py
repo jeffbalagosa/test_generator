@@ -75,6 +75,7 @@ def administer_test(formatted_test_data, num_questions=10):
     num_correct = 0
     percent_correct = 0
     asked_questions = set()
+    incorrect_questions = []  # Step 1: Initialize list for incorrect question indices
     question_number = 1
     print(
         f"\033[92mTest administered on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\033[0m"
@@ -89,10 +90,14 @@ def administer_test(formatted_test_data, num_questions=10):
             print(f"\n{question_number}) ", end="")
             if prompt_user_question(question, correct_answer, answers):
                 num_correct += 1
+            else:
+                incorrect_questions.append(question_number)  # Step 2: Add incorrect question index
             question_number += 1
 
     percent_correct = (num_correct / num_questions) * 100
     print(f"\033Score: {num_correct}/{num_questions} ({percent_correct:.2f}%)\033[0m")
+    if incorrect_questions:  # Step 3: Print incorrect question indices, if any
+        print(f"Incorrect Questions: {', '.join(map(str, incorrect_questions))}")
     return percent_correct
 
 

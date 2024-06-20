@@ -103,6 +103,17 @@ def prompt_user_question(question, correct_answer, answers):
 
 
 def administer_test(formatted_test_data, num_questions=5):
+    """
+    Administers a test to the user.
+
+    Args:
+        formatted_test_data (list): A list of formatted test data.
+        num_questions (int, optional): The number of questions to ask. Defaults to 5.
+
+    Returns:
+        float: The percentage of correct answers.
+
+    """
     num_correct = 0
     percent_correct = 0
     asked_questions = set()

@@ -30,7 +30,6 @@ def format_test_data(raw_data):
     return formatted_test_data
 
 
-# Get one random question and its answer, plus 3 random wrong answers from the formatted test data
 def get_question_and_answers(formatted_test_data):
     """
     Gets one random question and its answer, plus 3 random wrong answers

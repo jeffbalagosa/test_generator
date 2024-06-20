@@ -42,19 +42,22 @@ def get_question_and_answers(formatted_test_data, exclude=set()):
 
     answers = [correct_answer] + wrong_answers
     random.shuffle(answers)
-    return question_data["term"], correct_answer, answers, question_index
+
+    answer_letters = {chr(65 + i): answer for i, answer in enumerate(answers)}
+
+    return question_data["term"], correct_answer, answer_letters, question_index
 
 
 def prompt_user_question(question, correct_answer, answers):
     print(f"{question}\n")
-    for i, answer in enumerate(answers, 1):
-        print(f"{i}. {answer}")
-    user_answer = input("\nEnter the number of your answer: ")
+    for letter, answer in answers.items():
+        print(f"{letter}. {answer}")
+    user_answer = input("\nEnter the letter of your answer: ").upper()
 
     if check_internet_connection():
         print("\033[91m\nInternet connection detected. YOU ARE CHEATING!\n\033[0m")
 
-    if answers[int(user_answer) - 1] == correct_answer:
+    if answers[user_answer] == correct_answer:
         return True
     else:
         return False

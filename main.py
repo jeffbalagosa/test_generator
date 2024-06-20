@@ -16,33 +16,43 @@ def format_test_data(raw_data):
     return formatted_test_data
 
 
+def select_random_items(source_list, count, exclude_indices=set()):
+    """
+    Selects a specified count of random items from a source list, excluding specified indices.
+    """
+    available_choices = [i for i in range(len(source_list)) if i not in exclude_indices]
+    selected_items = random.sample(
+        available_choices, min(count, len(available_choices))
+    )
+    return selected_items
+
+
 def get_question_and_answers(formatted_test_data, exclude=set()):
-    available_questions = [
-        i for i in range(len(formatted_test_data)) if i not in exclude
-    ]
-    if not available_questions:
+    """
+    Generates a question, the correct answer, three wrong answers, and maps answers to letters.
+    Excludes questions with indices in the 'exclude' set.
+    """
+    # Select a random question that is not in the exclude set
+    question_indices = select_random_items(formatted_test_data, 1, exclude)
+    if not question_indices:
         raise ValueError("No more available questions.")
-    question_index = random.choice(available_questions)
+    question_index = question_indices[0]
     question_data = formatted_test_data[question_index]
     correct_answer = question_data["definition"]
 
-    wrong_answers = []
-    available_wrong_answers = [
-        i
-        for i in range(len(formatted_test_data))
-        if i != question_index and i not in exclude
+    # Select three wrong answers
+    wrong_answer_indices = select_random_items(
+        formatted_test_data, 3, exclude.union({question_index})
+    )
+    wrong_answers = [
+        formatted_test_data[idx]["definition"] for idx in wrong_answer_indices
     ]
 
-    while len(wrong_answers) < 3:
-        wrong_answer_index = random.choice(available_wrong_answers)
-        random_answer = formatted_test_data[wrong_answer_index]["definition"]
-        if random_answer not in wrong_answers:
-            wrong_answers.append(random_answer)
-            available_wrong_answers.remove(wrong_answer_index)
-
+    # Combine correct and wrong answers, then shuffle
     answers = [correct_answer] + wrong_answers
     random.shuffle(answers)
 
+    # Map answers to letters (A, B, C, D)
     answer_letters = {chr(65 + i): answer for i, answer in enumerate(answers)}
 
     return question_data["term"], correct_answer, answer_letters, question_index

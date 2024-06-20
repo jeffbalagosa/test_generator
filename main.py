@@ -98,7 +98,9 @@ def administer_test(formatted_test_data, num_questions=10):
             question_number += 1
 
     percent_correct = (num_correct / num_questions) * 100
-    print(f"\033Score: {num_correct}/{num_questions} ({percent_correct:.2f}%)\033[0m")
+    print(
+        f"\033[92mScore: {num_correct}/{num_questions} ({percent_correct:.2f}%)\033[0m"
+    )
     if incorrect_questions:
         print(f"Incorrect Questions: {', '.join(map(str, incorrect_questions))}")
     return percent_correct

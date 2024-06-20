@@ -70,13 +70,13 @@ def check_internet_connection():
 
 def administer_test(formatted_test_data, num_questions=10):
     if num_questions > len(formatted_test_data):
-        raise ValueError("The number of questions exceeds the available test data.")
+        num_questions = len(formatted_test_data)
 
     num_correct = 0
     percent_correct = 0
     asked_questions = set()
     question_number = 1
-    print(f"Test administered on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"\033[92mTest administered on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\033[0m")
 
     while len(asked_questions) < num_questions:
         question, correct_answer, answers, question_index = get_question_and_answers(
@@ -90,7 +90,7 @@ def administer_test(formatted_test_data, num_questions=10):
             question_number += 1
 
     percent_correct = (num_correct / num_questions) * 100
-    print(f"Score: {num_correct}/{num_questions} ({percent_correct:.2f}%)")
+    print(f"\033Score: {num_correct}/{num_questions} ({percent_correct:.2f}%)\033[0m")
     return percent_correct
 
 

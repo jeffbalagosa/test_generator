@@ -1,4 +1,5 @@
 import random
+import socket
 from datetime import datetime
 
 # Format of the raw data: Each term (or question) and definition (or answer) pair is separated by "{-line_break-}" and the question and answer are separated by "{-tab-}" Example: "Term{-tab-}Definition{-line_break-}"
@@ -6,49 +7,21 @@ raw_data = """Who was the author of the problem-solving approach discussed in th
 
 
 def format_test_data(raw_data):
-    """
-    Formats raw test data containing terms and definitions separated by
-    special markers into a list of dictionaries.
-
-    Parameters:
-    - raw_data (str): A string containing terms and their definitions,
-    separated by "{-tab-}" and "{-line_break-}".
-
-    Returns:
-    - list: A list of dictionaries, where each dictionary has 'term' and
-    'definition' keys.
-    """
-
     pairs = raw_data.split("{-line_break-}")
-
     formatted_test_data = []
-
     for pair in pairs:
         if "{-tab-}" in pair:
             term, definition = pair.split("{-tab-}")
             formatted_test_data.append({"term": term, "definition": definition})
-
     return formatted_test_data
 
 
 def get_question_and_answers(formatted_test_data, exclude=set()):
-    """
-    Gets one random question and its answer, plus 3 random wrong answers
-    from the formatted test data, ensuring the question has not been asked before.
-
-    Parameters:
-    - formatted_test_data (list): A list of dictionaries, where each
-      dictionary has 'term' and 'definition' keys.
-    - exclude (set): A set of indices representing questions that have already been asked.
-
-    Returns:
-    - tuple: A tuple containing the question (str), the correct answer (str),
-      a list of 3 wrong answers (list of str), and the index of the selected question.
-    """
-
     available_questions = [
         i for i in range(len(formatted_test_data)) if i not in exclude
     ]
+    if not available_questions:
+        raise ValueError("No more available questions.")
     question_index = random.choice(available_questions)
     question_data = formatted_test_data[question_index]
     correct_answer = question_data["definition"]
@@ -65,36 +38,21 @@ def get_question_and_answers(formatted_test_data, exclude=set()):
         random_answer = formatted_test_data[wrong_answer_index]["definition"]
         if random_answer not in wrong_answers:
             wrong_answers.append(random_answer)
-            available_wrong_answers.remove(
-                wrong_answer_index
-            )
+            available_wrong_answers.remove(wrong_answer_index)
 
     answers = [correct_answer] + wrong_answers
     random.shuffle(answers)
-
     return question_data["term"], correct_answer, answers, question_index
 
 
 def prompt_user_question(question, correct_answer, answers):
-    """
-    Prompts the user with a multiple-choice question and checks if the
-    answer is correct.
-
-    Parameters:
-    - question (str): The question to ask the user.
-    - correct_answer (str): The correct answer to the question.
-    - answers (list): A list of answer options (including the correct answer).
-
-    Returns:
-    - bool: True if the user's answer is correct, False otherwise.
-    """
-
     print(f"{question}\n")
-
     for i, answer in enumerate(answers, 1):
         print(f"{i}. {answer}")
-
     user_answer = input("\nEnter the number of your answer: ")
+
+    if check_internet_connection():
+        print("\033[91m\nInternet connection detected. YOU ARE CHEATING!\n\033[0m")
 
     if answers[int(user_answer) - 1] == correct_answer:
         return True
@@ -102,24 +60,22 @@ def prompt_user_question(question, correct_answer, answers):
         return False
 
 
+def check_internet_connection():
+    try:
+        socket.create_connection(("www.google.com", 80))
+        return True
+    except OSError:
+        return False
+
+
 def administer_test(formatted_test_data, num_questions=10):
-    """
-    Administers a test to the user.
+    if num_questions > len(formatted_test_data):
+        raise ValueError("The number of questions exceeds the available test data.")
 
-    Args:
-        formatted_test_data (list): A list of formatted test data.
-        num_questions (int, optional): The number of questions to ask. Defaults to 10.
-
-    Returns:
-        float: The percentage of correct answers.
-
-    """
     num_correct = 0
     percent_correct = 0
     asked_questions = set()
     question_number = 1
-
-    # print time and date of when the function was called
     print(f"Test administered on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
     while len(asked_questions) < num_questions:

@@ -76,7 +76,9 @@ def administer_test(formatted_test_data, num_questions=10):
     percent_correct = 0
     asked_questions = set()
     question_number = 1
-    print(f"\033[92mTest administered on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\033[0m")
+    print(
+        f"\033[92mTest administered on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\033[0m"
+    )
 
     while len(asked_questions) < num_questions:
         question, correct_answer, answers, question_index = get_question_and_answers(

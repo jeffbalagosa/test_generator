@@ -30,37 +30,51 @@ def format_test_data(raw_data):
     return formatted_test_data
 
 
-def get_question_and_answers(formatted_test_data):
+def get_question_and_answers(formatted_test_data, exclude=set()):
     """
     Gets one random question and its answer, plus 3 random wrong answers
-    from the formatted test data.
+    from the formatted test data, ensuring the question has not been asked before.
 
     Parameters:
     - formatted_test_data (list): A list of dictionaries, where each
-    dictionary has 'term' and 'definition' keys.
+      dictionary has 'term' and 'definition' keys.
+    - exclude (set): A set of indices representing questions that have already been asked.
 
     Returns:
     - tuple: A tuple containing the question (str), the correct answer (str),
-    and a list of 3 wrong answers (list of str).
+      a list of 3 wrong answers (list of str), and the index of the selected question.
     """
 
-    question_data = random.choice(formatted_test_data)
+    available_questions = [
+        i for i in range(len(formatted_test_data)) if i not in exclude
+    ]
+    question_index = random.choice(available_questions)
+    question_data = formatted_test_data[question_index]
     correct_answer = question_data["definition"]
 
     wrong_answers = []
+    available_wrong_answers = [
+        i
+        for i in range(len(formatted_test_data))
+        if i != question_index and i not in exclude
+    ]
 
     while len(wrong_answers) < 3:
-        random_answer = random.choice(formatted_test_data)["definition"]
-        if random_answer != correct_answer and random_answer not in wrong_answers:
+        wrong_answer_index = random.choice(available_wrong_answers)
+        random_answer = formatted_test_data[wrong_answer_index]["definition"]
+        if random_answer not in wrong_answers:
             wrong_answers.append(random_answer)
+            available_wrong_answers.remove(
+                wrong_answer_index
+            )
 
     answers = [correct_answer] + wrong_answers
     random.shuffle(answers)
 
-    return question_data["term"], correct_answer, answers
+    return question_data["term"], correct_answer, answers, question_index
 
 
-def prompt_user(question, correct_answer, answers):
+def prompt_user_question(question, correct_answer, answers):
     """
     Prompts the user with a multiple-choice question and checks if the
     answer is correct.
@@ -80,15 +94,34 @@ def prompt_user(question, correct_answer, answers):
         print(f"{i}. {answer}")
 
     user_answer = input("Enter the number of your answer: ")
+    print()
 
     if answers[int(user_answer) - 1] == correct_answer:
-        print("Correct!")
         return True
     else:
-        print(f"Wrong! The correct answer is: {correct_answer}")
         return False
 
 
-formatted_test_data = format_test_data(raw_data)
-question, correct_answer, answers = get_question_and_answers(formatted_test_data)
-prompt_user(question, correct_answer, answers)
+def administer_test(formatted_test_data, num_questions=5):
+    num_correct = 0
+    percent_correct = 0
+    asked_questions = set()
+    question_number = 1
+
+    while len(asked_questions) < num_questions:
+        question, correct_answer, answers, question_index = get_question_and_answers(
+            formatted_test_data, exclude=asked_questions
+        )
+        if question_index not in asked_questions:
+            asked_questions.add(question_index)
+            print(f"{question_number}) ", end="")
+            if prompt_user_question(question, correct_answer, answers):
+                num_correct += 1
+            question_number += 1
+
+    percent_correct = (num_correct / num_questions) * 100
+    print(f"Score: {num_correct}/{num_questions} ({percent_correct:.2f}%)")
+    return percent_correct
+
+
+administer_test(format_test_data(raw_data))

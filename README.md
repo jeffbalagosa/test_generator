@@ -28,6 +28,7 @@ python main.py
 ## Usage
 
 Upon running the script, the application will:
+
 1. Print the current date and time.
 2. Administer a series of questions from the provided dataset.
 3. Detect if there is an internet connection to prevent cheating.
@@ -40,20 +41,20 @@ $ python main.py
 Test administered on 2024-06-19 15:45:30
 
 1) Who was the author of the problem-solving approach discussed in the first chapter?
-1. Charles
-2. Canon
-3. Logic tree
-4. Seven
+A. Charles
+B. Canon
+C. Logic tree
+D. Seven
 
-Enter the number of your answer: 1
+Enter the number of your answer: A
 
 2) Which company did Charles intern at in Japan?
-1. Canon
-2. Sydney Airport
-3. Logic trees
-4. Charles
+A. Canon
+B. Sydney Airport
+C. Logic trees
+D. Charles
 
-Enter the number of your answer: 1
+Enter the number of your answer: A
 
 ...
 

@@ -59,10 +59,39 @@ def get_question_and_answers(formatted_test_data, exclude=set()):
 
 
 def prompt_user_question(question, correct_answer, answers):
+    """
+    Present a question to the user, collect their answer, and check for
+    correctness.
+
+    This function displays a question with multiple choice answers, prompts
+    the user for their selection, checks for internet connection to prevent
+    cheating, and determines if the user's answer is correct.
+
+    Args:
+        question (str): The question to be asked.
+        correct_answer (str): The correct answer to the question.
+        answers (dict): A dictionary of answer choices, with letters as keys
+        and answer text as values.
+
+    Returns:
+        bool: True if the user's answer is correct, False otherwise.
+
+    Note:
+        - The function will continue to prompt the user until a valid answer
+        is provided.
+        - If an internet connection is detected, a warning message will be
+        displayed.
+    """
     print(f"{question}\n")
     for letter, answer in answers.items():
         print(f"{letter}. {answer}")
-    user_answer = input("\nEnter the letter of your answer: ").upper()
+
+    while True:
+        user_answer = input("\nEnter the letter of your answer: ").upper()
+        if user_answer in answers:
+            break
+        else:
+            print("Invalid input. Please enter a valid letter.")
 
     if check_internet_connection():
         print("\033[91m\nInternet connection detected. YOU ARE CHEATING!\n\033[0m")

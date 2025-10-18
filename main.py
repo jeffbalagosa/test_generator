@@ -3,9 +3,9 @@ import socket
 from datetime import datetime
 from typing import List, Optional, Set
 
-from config import quizlet_export_file
+# Path to the Quizlet export file
+quizlet_export_file = "tests/micah/12-rules.txt"
 
-# Load the quizlet export data from the configured file path
 try:
     with open(quizlet_export_file, "r", encoding="utf-8") as f:
         raw_data = f.read()

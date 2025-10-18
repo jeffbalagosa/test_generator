@@ -18,6 +18,26 @@ except FileNotFoundError:
 
 
 def format_test_data(raw_data):
+    """
+    Parse raw test data string into a list of term-definition pairs.
+
+    Takes a raw data string containing term-definition pairs separated by special
+    delimiters and converts it into a structured list of dictionaries.
+
+    Args:
+        raw_data (str): Raw string containing term-definition pairs separated by
+                       {-line_break-}, with terms and definitions separated by {-tab-}
+
+    Returns:
+        list[dict]: List of dictionaries, each containing 'term' and 'definition' keys.
+                   Only pairs containing the "{-tab-}" separator are included.
+
+    Example:
+        >>> raw_data = ("a{-tab-}b{-line_break-}"
+        ... "c{-tab-}d")
+        >>> format_test_data(raw_data)
+        [{'term': 'a', 'definition': 'b'}, {'term': 'c', 'definition': 'd'}]
+    """
     pairs = raw_data.split("{-line_break-}")
     formatted_test_data = []
     for pair in pairs:
@@ -32,7 +52,20 @@ def select_random_items(
     count: int,
     exclude_indices: Optional[Set[int]] = None,
 ) -> List[int]:
-    """Select a count of random indices, excluding any provided positions."""
+    """
+    Select a given number of random indices from a list, excluding provided indices.
+
+    Args:
+        candidates (List): The list of items to select indices from.
+        count (int): The number of random indices to select.
+        exclude_indices (Optional[Set[int]]): Indices to exclude. Defaults to None.
+
+    Returns:
+        List[int]: A list of randomly selected indices.
+
+    Raises:
+        ValueError: If count exceeds available items after exclusions.
+    """
     exclude_indices = exclude_indices or set()
     available_count = len(candidates) - len(exclude_indices)
     if count > available_count:
@@ -47,7 +80,23 @@ def select_random_items(
 
 
 def get_question_and_answers(formatted_test_data, exclude: Optional[Set[int]] = None):
-    """Build a question with one correct answer and three distractors."""
+    """
+    Build a multiple-choice question with one correct answer and three distractors.
+
+    Args:
+        formatted_test_data (list[dict]): List of term-definition pairs.
+        exclude (Optional[Set[int]]): Indices to exclude. Defaults to None.
+
+    Returns:
+        tuple: (question_term, correct_answer, answer_options, question_index)
+               - question_term (str): The term to be asked.
+               - correct_answer (str): The correct definition.
+               - answer_options (dict): Mapping of letters (A-D) to answer texts.
+               - question_index (int): Index of the selected question in the data.
+
+    Raises:
+        ValueError: If no more available questions after exclusions.
+    """
     exclude = exclude or set()
     # Select a random question that is not in the exclude set
     question_indices = select_random_items(formatted_test_data, 1, exclude)
@@ -104,6 +153,7 @@ def prompt_user_question(question, correct_answer, answers):
 
 
 def check_internet_connection():
+    """ """
     try:
         socket.create_connection(("www.google.com", 80))
         return True
@@ -112,6 +162,27 @@ def check_internet_connection():
 
 
 def administer_test(formatted_test_data, num_questions=10):
+    """
+    Administer a multiple-choice quiz and calculate the user's score.
+
+    Presents a series of questions to the user, collects their answers, and computes
+    the percentage of correct responses. Questions are selected randomly without
+    repetition. The test includes anti-cheating measures by detecting internet
+    connectivity.
+
+    Args:
+        formatted_test_data (list[dict]): List of term-definition pairs for questions.
+        num_questions (int): Number of questions to ask. Defaults to 10. If this
+                             exceeds available questions, it adjusts to the maximum.
+
+    Returns:
+        float: Percentage of correct answers (0.0 to 100.0).
+
+    Notes:
+        - Prints test timestamp, questions, and final score to console.
+        - Lists incorrect question numbers if any.
+        - Warns if internet connection is detected during answering.
+    """
     if num_questions > len(formatted_test_data):
         num_questions = len(formatted_test_data)
 

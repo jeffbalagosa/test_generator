@@ -1,10 +1,33 @@
 import random
 import socket
 from datetime import datetime
-from typing import List, Set
+from typing import List, Optional, Set
 
-# Format of the raw data: Each term (or question) and definition (or answer) pair is separated by "{-line_break-}" and the question and answer are separated by "{-tab-}" Example: "Term{-tab-}Definition{-line_break-}"
-raw_data = """Question 1{-tab-}Answer 1{-line_break-}Question 2{-tab-}Answer 2{-line_break-}Question 3{-tab-}Answer 3{-line_break-}Question 4{-tab-}Answer 4{-line_break-}Question 5{-tab-}Answer 5{-line_break-}Question 6{-tab-}Answer 6{-line_break-}Question 7{-tab-}Answer 7{-line_break-}Question 8{-tab-}Answer 8{-line_break-}Question 9{-tab-}Answer 9{-line_break-}Question 10{-tab-}Answer 10{-line_break-}Question 11{-tab-}Answer 11{-line_break-}Question 12{-tab-}Answer 12{-line_break-}Question 13{-tab-}Answer 13{-line_break-}Question 14{-tab-}Answer 14{-line_break-}Question 15{-tab-}Answer 15{-line_break-}Question 16{-tab-}Answer 16{-line_break-}Question 17{-tab-}Answer 17{-line_break-}Question 18{-tab-}Answer 18{-line_break-}Question 19{-tab-}Answer 19{-line_break-}Question 20{-tab-}Answer 20{-line_break-}"""
+# Format of the raw data: Each term (or question) and definition (or answer)
+# pair is separated by "{-line_break-}" and the question and answer are
+# separated by "{-tab-}".
+raw_data = (
+    "Question 1{-tab-}Answer 1{-line_break-}"
+    "Question 2{-tab-}Answer 2{-line_break-}"
+    "Question 3{-tab-}Answer 3{-line_break-}"
+    "Question 4{-tab-}Answer 4{-line_break-}"
+    "Question 5{-tab-}Answer 5{-line_break-}"
+    "Question 6{-tab-}Answer 6{-line_break-}"
+    "Question 7{-tab-}Answer 7{-line_break-}"
+    "Question 8{-tab-}Answer 8{-line_break-}"
+    "Question 9{-tab-}Answer 9{-line_break-}"
+    "Question 10{-tab-}Answer 10{-line_break-}"
+    "Question 11{-tab-}Answer 11{-line_break-}"
+    "Question 12{-tab-}Answer 12{-line_break-}"
+    "Question 13{-tab-}Answer 13{-line_break-}"
+    "Question 14{-tab-}Answer 14{-line_break-}"
+    "Question 15{-tab-}Answer 15{-line_break-}"
+    "Question 16{-tab-}Answer 16{-line_break-}"
+    "Question 17{-tab-}Answer 17{-line_break-}"
+    "Question 18{-tab-}Answer 18{-line_break-}"
+    "Question 19{-tab-}Answer 19{-line_break-}"
+    "Question 20{-tab-}Answer 20{-line_break-}"
+)
 
 
 def format_test_data(raw_data):
@@ -18,22 +41,12 @@ def format_test_data(raw_data):
 
 
 def select_random_items(
-    candidates: List, count: int, exclude_indices: Set[int] = set()
+    candidates: List,
+    count: int,
+    exclude_indices: Optional[Set[int]] = None,
 ) -> List[int]:
-    """
-    Selects a specified count of random items from a list of candidates, excluding specified indices.
-
-    Args:
-        candidates (List): The list of items to choose from.
-        count (int): The number of items to select.
-        exclude_indices (Set[int], optional): Indices to exclude from selection. Defaults to an empty set.
-
-    Returns:
-        List[int]: A list of selected item indices.
-
-    Raises:
-        ValueError: If the requested count exceeds the number of available items after exclusions.
-    """
+    """Select a count of random indices, excluding any provided positions."""
+    exclude_indices = exclude_indices or set()
     available_count = len(candidates) - len(exclude_indices)
     if count > available_count:
         raise ValueError(
@@ -46,11 +59,9 @@ def select_random_items(
     return selected_items
 
 
-def get_question_and_answers(formatted_test_data, exclude=set()):
-    """
-    Generates a question, the correct answer, three wrong answers, and maps answers to letters.
-    Excludes questions with indices in the 'exclude' set.
-    """
+def get_question_and_answers(formatted_test_data, exclude: Optional[Set[int]] = None):
+    """Build a question with one correct answer and three distractors."""
+    exclude = exclude or set()
     # Select a random question that is not in the exclude set
     question_indices = select_random_items(formatted_test_data, 1, exclude)
     if not question_indices:
@@ -78,28 +89,12 @@ def get_question_and_answers(formatted_test_data, exclude=set()):
 
 
 def prompt_user_question(question, correct_answer, answers):
-    """
-    Present a question to the user, collect their answer, and check for
-    correctness.
-
-    This function displays a question with multiple choice answers, prompts
-    the user for their selection, checks for internet connection to prevent
-    cheating, and determines if the user's answer is correct.
+    """Present a question to the user, collect their answer, and report correctness.
 
     Args:
         question (str): The question to be asked.
-        correct_answer (str): The correct answer to the question.
-        answers (dict): A dictionary of answer choices, with letters as keys
-        and answer text as values.
-
-    Returns:
-        bool: True if the user's answer is correct, False otherwise.
-
-    Note:
-        - The function will continue to prompt the user until a valid answer
-        is provided.
-        - If an internet connection is detected, a warning message will be
-        displayed.
+        correct_answer (str): The correct answer text.
+        answers (dict): Mapping of option letters to answer text.
     """
     print(f"{question}\n")
     for letter, answer in answers.items():
@@ -138,13 +133,18 @@ def administer_test(formatted_test_data, num_questions=10):
     asked_questions = set()
     incorrect_questions = []
     question_number = 1
-    print(
-        f"\033[92mTest administered on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\033[0m"
-    )
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"\033[92mTest administered on {timestamp}\033[0m")
 
     while len(asked_questions) < num_questions:
-        question, correct_answer, answers, question_index = get_question_and_answers(
-            formatted_test_data, exclude=asked_questions
+        (
+            question,
+            correct_answer,
+            answers,
+            question_index,
+        ) = get_question_and_answers(
+            formatted_test_data,
+            exclude=asked_questions,
         )
         if question_index not in asked_questions:
             asked_questions.add(question_index)
@@ -156,9 +156,8 @@ def administer_test(formatted_test_data, num_questions=10):
             question_number += 1
 
     percent_correct = (num_correct / num_questions) * 100
-    print(
-        f"\033[92mScore: {num_correct}/{num_questions} ({percent_correct:.2f}%)\033[0m"
-    )
+    score_line = f"Score: {num_correct}/{num_questions} ({percent_correct:.2f}%)"
+    print(f"\033[92m{score_line}\033[0m")
     if incorrect_questions:
         print(f"Incorrect Questions: {', '.join(map(str, incorrect_questions))}")
     return percent_correct

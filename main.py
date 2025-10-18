@@ -3,7 +3,7 @@ import socket
 from datetime import datetime
 from typing import List, Optional, Set
 
-from config import raw_data
+from config import quizlet_export_data as raw_data
 
 
 def format_test_data(raw_data):

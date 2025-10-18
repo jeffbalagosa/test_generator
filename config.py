@@ -1,8 +1,8 @@
 # Configuration file for the quiz application
-# Format of the raw data: Each term (or question) and definition (or answer)
+# Format of the quizlet export data: Each term (or question) and definition (or answer)
 # pair is separated by "{-line_break-}" and the question and answer are
 # separated by "{-tab-}".
-raw_data = (
+quizlet_export_data = (
     "Question 1{-tab-}Answer 1{-line_break-}"
     "Question 2{-tab-}Answer 2{-line_break-}"
     "Question 3{-tab-}Answer 3{-line_break-}"

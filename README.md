@@ -1,6 +1,6 @@
 # Quiz Application
 
-This is a Python-based quiz application that tests users on various questions and answers derived from a structured dataset. The application features a set of questions with multiple choice answers and checks for internet connection to prevent cheating.
+This is a Python-based quiz application that tests users on various questions and answers derived from a structured dataset stored in a configuration file. The application features a set of questions with multiple choice answers and checks for internet connection to prevent cheating.
 
 ## Features
 
@@ -64,6 +64,7 @@ Score: 8/10 (80.00%)
 ## Files
 
 - `main.py`: The main script that runs the quiz application.
+- `config.py`: Configuration file containing the quiz questions and answers data.
 
 ## Contributing
 

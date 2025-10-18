@@ -4,7 +4,7 @@ from datetime import datetime
 from typing import List, Optional, Set
 
 # Path to the Quizlet export file
-quizlet_export_file = "quizlet_exports/micah/12-rules.txt"
+quizlet_export_file = "quizlet_exports/example.txt"
 
 try:
     with open(quizlet_export_file, "r", encoding="utf-8") as f:

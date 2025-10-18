@@ -1,0 +1,484 @@
+wireless networking{-tab-}operates across various frequency bands and uses specific transmission methods to optimize its performance{-line_break-}DSSS (Direct Sequence Spread Spectrum){-tab-}transmits data across the entire frequency range using signal patters known as chips. suboptimal choice. older method used in wireless B
+-channels 1, 6, and 11 used to avoid overlap{-line_break-}OFDM (Orthogonal Frequency Division Multiplexing){-tab-}divides data transmission into smaller subchannels that can each carry a portion of the data.
+-efficient communication, in Wi-Fi g, n, ac, and ax{-line_break-}wireless channel{-tab-}"Virtual pipe" for data transmission, each channel is defined by its width and placement with a given frequency band{-line_break-}2.4 GHz{-tab-}2.4 to 2.5 GHz
+-LONGER range because of LOWER frequency
+-channels 1, 6, 11
+-interference from microwaves, Bluetooth, and cordless phones{-line_break-}5 GHz{-tab-}5.725 to 5.875
+-SHORTER range because of HIGHER frequency
+-higher speed, 24 non-overlapping channels
+-supports channel bonding{-line_break-}channel bonding{-tab-}enables the creation of WIDER channels, like 40, 80, 160 MHz, by merging adjacent channels to increase throughput dramatically{-line_break-}6 GHz{-tab-}5.925 to 7.125 GHz
+-newer devices, 59 non-overlapping channels, minimal congestion
+-high speed{-line_break-}key optimization{-tab-}proper channel selection and width optimization reduce interference and maximize performance{-line_break-}802.11{-tab-}2.4 GHz, speeds of 1 to 2 Mbps{-line_break-}wireless standards{-tab-}specifications for wireless networking under the IEEE 802.11 family, defining frequency bands, speeds, and compatibility to ensure efficient connectivity{-line_break-}802.11a: wireless A{-tab-}5 GHz, max speed 54 Mbps
+-limited to business environments due to high costs of 5GHz radios{-line_break-}802.11b: wireless B{-tab-}2.4 GHz, max speed 11 Mbps
+-affordable, used in homes, schools, and businesses{-line_break-}802.11g: wireless G{-tab-}2.4 GHz, max speed 54 Mbps
+-backward compatible with 802.11b devices{-line_break-}802.11n: Wi-Fi 4{-tab-}dual band, both 2.4 and 5 GHz, max speed 300-600Mbps
+-introduced MIMO
+-backward compatible with 802.11b and 802.11g devices{-line_break-}MIMO{-tab-}multiple input multiple output: enable access points to use multiple antennas to transmit and receive data simultaneously{-line_break-}802.11ac: Wi-Fi 5{-tab-}5 GHz, max speed = theoretical 6.9 Gbps, but around 1 Gbps in real world
+-Multiuser MIMO, wider channels{-line_break-}802.11ax: wireless AX{-tab-}2.4, 5, and 6 GHz
+-high speeds, high capacity{-line_break-}Wi-Fi 6 and 6E{-tab-}2.4, 5, and 6 (6E) GHz
+-uses MU-MIMO and OFDMA for efficiency
+-crowded environments{-line_break-}WEP (wired equivalent privacy){-tab-}unsecure, lack of scalability{-line_break-}PSK{-tab-}pre-shared key
+-using the same password on both the wireless access point and client device to establish an encrypted connection{-line_break-}WPA (Wi-Fi protected access){-tab-}replacement for WEP
+-encrypted with TKIP (temporal key integrity protocol) to increase the initialization vector's length from 24 bits to 48 bits to double its strength
+-MIC: message integrity check: to prevent data tampering
+-avoid using unless absolutely necessary{-line_break-}WPA2{-tab-}-AES algorithm that uses either a 128-bit key or 256-bit key
+-counter mode with Cipher block chaining message
+-CCMP (authentication code protocol)
+-strong confidentiality and data integrity
+-used strong, complex passwords{-line_break-}WPA3{-tab-}addressed modern security challenges and offers more protection
+-SAE: simultaneous authentication of equals: improves security by protecting against offline brute-force attacks
+-forward secrecy: ensures even when the network password is compromised, past communication sessions remain secure
+-PMF" protected management frames: enhance the protection of control messages exchanged between wireless devices to reduce the risk of eavesdropping and session hijacking{-line_break-}MAC address filtering{-tab-}allows router to permit or deny access based on device MAC addresses, which is the hardware address of a given network card in a device{-line_break-}disabling SSID broadcast{-tab-}hiding the network name to make it less visible to casual users{-line_break-}fixed wireless technology{-tab-}high-speed connectivity solutions that do not rely on traditional wired infrastructure, using wireless transmission methods to connect fixed locations{-line_break-}Wi-Fi/802.11{-tab-}used for creating point to point connection
+-uses directional antennas for improved signal focus and reduced interference
+-cost effective like campuses or close together buildings{-line_break-}cellular based fixed wireless{-tab-}utilize stationary cellular hotspots equipped with larger antennas and powered by a standard power outlet
+-ideal for rural or underserved areas without wired broadband
+-ex: verizon, t-mobile
+-leverages 5G for high speed connectoins{-line_break-}microwave-based networks{-tab-}long range. high speed point to point links
+-operates over high frequency signals and requires a clear line of sight between antennas
+-40-mile range
+-ex: remote buildings, industrial sites, or rural communities{-line_break-}satellite networks{-tab-}long distance connectivity
+-geosynchronous satellites: positioned farther from Earth and cover a wide area
+-low earth orbit satellites: closer to Earth reducing latency and improving performance{-line_break-}connectivity technologies{-tab-}wireless and wired methods enabling communication and data transfer between mobile devices, wearables, and other systems{-line_break-}NFC: near field communication{-tab-}short range radio frequency technology that allows devices to communicate when they are only a few inches apart
+-ex: apple pay
+-security risks: high-gain antennas and radio frequency skimmers can intercept signals{-line_break-}RFID: radio frequency identification{-tab-}tracking and authentication
+-ex: inventory management or work badges
+-security risks: vulnerable to relay attacks where signals are captured and retransmitted, use PINs or MFA{-line_break-}IR: infrared{-tab-}line of sight communication in which devices must have a clear, unobstructed view of each other to exchange data
+-ex: remote controls{-line_break-}Bluetooth{-tab-}seamless connection between devices, short range communications for PANs, 2.4 GHz
+-bluejacking: sending unsolicited messages to devices
+-bluesnarfing: unauthorized data access via Bluetooth
+-blueBorne: exploits protocol vulnerabilities for device control{-line_break-}tethering{-tab-}allows phones to share their internet connection with other devices like laptops and tablets
+-ex: hotspots, Bluetooth, USB connection{-line_break-}dial-up{-tab-}analog tech with maximum speeds of 53.3 Kbps
+-obsolete for most modern use cases but persists in niche applications{-line_break-}DSL: digital subscriber lines{-tab-}higher-speed option leveraging existing phone lines
+-ADSL: asymmetric DSL: prioritizes downloads for typical user behavior
+-SDSL: symmetric DSL: balances upload and download speeds for business needs
+-VDSL: very high bit-rate DSL: offers the fastest speeds but requires proximity to DSLAM{-line_break-}cable connections{-tab-}high speed internet services delivered over hybrid fiber-coaxial (HFC) networks using cable modems and the DOCSIS standard{-line_break-}HFC: hybrid fiber-coaxial networks{-tab-}combines fiber optic and coaxial cables
+-fiber optic: high-capacity backbone of the network
+-coaxial cable: used for the "last mile" to homes and offices
+-supports higher speeds and greater data capacity than DSL and cost effective`{-line_break-}DOCSIS: data over cable service interface specification{-tab-}defines how data transmits over cable TV networks, ensuring compatibility across cable modems and ISPs
+-industry standard for transmitting data over cable TV networks
+-this standard specifies the frequency ranges for upstream and downstream communications
+-upstream 5-42MHz, downstream 50-860MHz{-line_break-}advantages of cable modems over DSL{-tab-}faster speeds, better support for modern bandwidth demands, and quicker deployment due to existing infrastructure{-line_break-}fiber connections{-tab-}high speed internet services delivered using fiber optic cables, offering superior speed and reliability compared to traditional copper or coaxial connections{-line_break-}FTTC: fiber to the curb{-tab-}fiber optic cable running to a pedestal or distribution point near the property, faster speeds over the fiber backbone while using existing copper for the last segment{-line_break-}FTTP: fiber to the premises{-tab-}fiber optic cable brought directly into the building
+-FASTEST and reliable connection as the signal remains in the optical domain into the building{-line_break-}ONT: optical network terminal{-tab-}device that converts the optical signal from the fiber cable into an electrical signal compatible with routers
+-links to routers via copper twisted pair or fiber patch cables{-line_break-}cellular connections{-tab-}THE HIGHER THE G, THE NEWER THE STANDARD, THE FASTER THE SPEED
+
+wireless communication technologies that connect devices to the internet and networks through cellular towers, evolving through generations from 1G to 5G{-line_break-}5G{-tab-}-low band: long range, slower speeds
+-mid band: balanced speed and coverage
+-high band: limited range, ultra-fast speeds for high density environments{-line_break-}WISP: wireless internet service provider connection{-tab-}uses microwave links to provide high-speed internet to fixed locations{-line_break-}microwave links{-tab-}uses radio waves in the microwave frequency range -300 MHz-300 GHz- for data transmission
+-ideal for environments where fiber is impractical
+-viable solution for fixed location wireless internet
+-cost-effective high-speed alternative to cable installations{-line_break-}WiMAX{-tab-}earlier standard for microwave-based internet; replaced by 4G and 5G for most consumer applications
+-campuses, business parks, rural areas{-line_break-}geosynchronous satellites{-tab-}provide broad coverage with higher latency and slower speeds, suitable for remote{-line_break-}IPv4{-tab-}widely used protocol to assign unique addresses to devices on a network
+-logically identifies devices on a network, assigning each a unique address for data exchange
+-uses a 32 bit addressing system in dotted decimal format /192.168.1.4/ with octets valued between 0 and 255{-line_break-}subnet mask{-tab-}specifies which part of the IPv4 address identifies the network and which part identifies individual hosts
+-32-bit number in dotted decimal position
+-HELO DISTINGUISH THE NETWORK FROM THE HOST, ALLOWING PROPER ROUTING AND DEVICE COMMUNICATION{-line_break-}NAT: network address translation{-tab-}allows multiple devices to share a single public IP address
+-devices using private IP addresses cannot connect directly to the Internet and rely on NAT to communicate{-line_break-}components of an IPv4 address{-tab-}-network portion: identifies the network the device belongs to
+-host-portion: identifies an individual device on the network
+-ex: IPv4 address: 192.168.1.4
+ subnet mask: 255.255.255.0
+ network portion: 192.168.1
+ host portion: 4{-line_break-}classful vs. classless: classful addressing{-tab-}IPv4 addresses were originally divided into predefined address groups called classes, each with a fixed subnet mask to allocate IP addresses to networks
+-five classes: A, B, C, D, E based on the value of the first octet
+**-each class has a default subnet mask that dictates how the network and host portions are divided
+-there is wasted address space dur to rigid boundaries; inefficient for modern large-scale networking{-line_break-}CIDR: classless inter-domain routing{-tab-}replaced the fixed class system with a more flexible approach to subnetting and address allocation
+-allows network admins to customize the subnet mask instead of using the default mask for a class
+-NOTATION: specifies the subnet mask with a slash and the number of network bits
+-enables subnetting to divide larger networks into a smaller network{-line_break-}IP addresses{-tab-}unique numerical identifiers assigned to devices on a network to facilitate communication{-line_break-}public IP addresses{-tab-}identify devices on the global internet, allowing worldwide communication.
+-ex: web servers, cloud services, IoT devices
+-routable outside the local network Globally unique, assigned by ICANN or regional authorities{-line_break-}private IP addresses{-tab-}used within LANs, not globally unique, and cannot communicate directly over the internet
+-ex: homes, offices, and enterprise networks
+*-the router uses NAT (network address translation) to translate private IPs into a public IP assigned by the ISP
+ -NAT maps private IP addresses to a public IP for external communication{-line_break-}loopback address{-tab-}127.0.0.1
+-used to test local network functionality
+-useful for diagnosing software, driver, or configuration issues{-line_break-}APIPA: automatic private IP addressing{-tab-}-special range of IP addresses that spans from 169.254.0.0-169.254.255.255
+-allows local device communication, no internet access
+-ex: if your router is down, your computer may assign itself an APIPA address instead of crashing and can communicate with other computers in the same LAN, but not the internet{-line_break-}network addresses{-tab-}first in an IP range and identifies the network itself
+-used by routers for routing and addressing purposes{-line_break-}broadcast addresses{-tab-}last in IP range and sends data to all devices on a network
+-essential for sending announcements or discovering services on a network{-line_break-}static assignments{-tab-}MANUAL configuration of IP settings for each device
+-need
+1. IP address: unique identifier for the device on the network
+2. subnet mask: defines the network and host portions of the IP address
+3.default gateway: routes traffic to external networks/IP address of a device connecting the local network to external networks
+4.DNS server: translates domain names to IP addresses
+-ex: routers, firewalls, and servers{-line_break-}dynamic assignments{-tab-}AUTOMATIC assignment of IP addresses to devices when they connect to the network
+-relies on DHCP (dynamic host configuration protocol)
+ -automatically assigns IP addresses, subnet masks, gateways, and DNS details
+ -manages an IP address pool or scope
+ -uses temporary leases that can expire and be reassigned
+-ex: laptops, smartphones, and workstations
+-Zero Configuration: alternative to APIPA
+ -link local addressing (self-assigned addresses), name resolution and service discovery
+ -ex: Bonjour or Microsoft LLMNR{-line_break-}IPv6{-tab-}next generation IP addressing protocol developed to overcome the limitations of IPv4, offering a vastly expanded address space, improved efficiency, scalability, and enhanced security{-line_break-}IPv6 addressing{-tab-}128-bit addresses
+-written in hexadecimal format and separated by colons, 2001:0db8:85a3:0000:0000:8a2e:0370:7334 leading zeros can be omitted, and consecutive zeros can be replaced by '::' for simplification{-line_break-}advantage of IPv6{-tab-}-massive address space: eliminates the need for workarounds like NAT
+-improved efficiency: replaces broadcast traffic with multicast and anycast, reducing unnecessary network traffic
+-enhanced security: built in support for IPsec for end-to-end encryption, elimination of packet fragmentation
+-performance enhancements{-line_break-}IPv6 unicast address{-tab-}identify a single device and can be globally routed or link-local
+-globally routed: like public IPv4, enables Internet communication and begins with 2000-3999 in first segment. EX:2001:db8::2a4e:370 Used to enable communication across the internet
+
+-link local: for local communication within the same network segment, begins with FE80, automatically assigned to IPv6-enabled interface. EX: FE80::1a2b:3c4d:5e6f Cannot be routed beyond the local segment
+
+-SLAAC: stateless address autoconfiguration: devices generate link-local addresses automatically, uses the EUI-64 format derived from the device's MAC address{-line_break-}multicast addresses{-tab-}used for one-to-many communication, enabling efficient data transmission to multiple devices.
+-always start with FF::/8, easy to identify
+-used for things like video streaming or network management
+-EX: FF02::1 (all nodes on the local link){-line_break-}anycast addresses{-tab-}identifies a group of devices, delivering data to the nearest device based on routing metrics
+-these share the unicast address pool and lack a distinct visual identifier
+-useful for optimizing traffic and improving load balancing
+-used in large scale services like Content Delivery Networks (CDNs){-line_break-}network communications{-tab-}rely on ports, which are logical communication endpoints that enable devices to send and receive data through specify applications or services. ports facilitate communication by directing data to the correct service or application on a device{-line_break-}inbound port{-tab-}listens for incoming connections
+-ex: web server listens on port 80 (HTTP) or port 443 (HHTPS) to accept client requests{-line_break-}outbound port{-tab-}dynamically opened by a client device when initiating a connection
+-ex: when accessing a website, a random high-numbered outbound port like 52363 is opened to connect to the server's port 80 or 443{-line_break-}well known ports{-tab-}0-1023
+-reserved for common protocols like HTTP (80), HTTPS (443), SSH (22){-line_break-}registered ports{-tab-}1024-49151
+-assigned to specific applications such as SQL server and RDP
+-used by proprietary applications and services{-line_break-}dynamic/private ports{-tab-}49152-65535
+used for temporary outbound connections and can be used freely, web browsing{-line_break-}ports and protocols{-tab-}-network ports and protocols are essential for communication between devices in a network
+-each protocol operates on a specific port number, which is crucial for configuring and troubleshooting networks{-line_break-}FTP{-tab-}file transfer protocol
+-transfers files between a client and a server
+-PORTS 20 (data), 21 (control)
+-insecure due to plaintext data transmission
+-should be avoided for sensitive data unless secured via SSH{-line_break-}SSH{-tab-}secure shell
+-PORT 22
+-provides secure, encrypted remote access to devices
+-used for command line management of servers, encrypts login credentials and data for security{-line_break-}Telnet{-tab-}PORT 23
+-allows remote text-based access to devices
+-insecure due to plaintext transmission of credentials
+-replaced by SSH in modern networks
+-if found active, it should be disabled and replaced with SSH{-line_break-}SMTP{-tab-}simple mail transfer protocol
+-PORT 25
+-sends email messages
+-standard protocol for outgoing email communications
+-used by email servers to transmit messages{-line_break-}DNS{-tab-}domain name system
+-PORT 53
+-translates domain names into IP addresses
+-essential for web browsing and accessing online services
+-can be used for DNS lookups and queries{-line_break-}DHCP{-tab-}dynamic house configuration protocol
+-PORT 67 (server), 68 (client)
+-assigns IP addresses and network settings dynamically
+-automates network configuration by assigning IP addresses, subnet masks, gateways, and DNS settings
+-reduces manual configuration workload{-line_break-}HTTP{-tab-}hypertext transfer protocol
+-PORT 80
+-transfers web pages without encryption
+-basis of the world wide web
+-insecure; replaced by HTTPS for secure web browsing{-line_break-}POP3{-tab-}post office protocol 3
+-PORT 110
+-retrieves email from a server to a local client
+-downloads messages to the client and offers options for deletion or storage on the server
+-suitable for single-device email access{-line_break-}IMAP{-tab-}internet message access protocol
+-PORT 143
+-manages emails on a server while keeping them synchronized across multiple devices
+-allows users to access emails from multiple devices
+-preferred over POP3 in modern environments{-line_break-}NetBIOS and NetBT{-tab-}NetBIOS over TCP/IP
+-PORT 137, 139
+-enables file and printer sharing in Windows environments
+-supports name resolution and LAN communications
+-used primarily in legacy Windows networks{-line_break-}LDAP{-tab-}lightweight directory access protocol
+-PORT 389
+-manages and accesses directory information services
+-used in directory services like Microsoft AD
+-organizes and retrieves information about users and devices{-line_break-}HTTPS{-tab-}Hypertext Transfer protocol secure
+-PORT 443
+-secure version of HTTP using encryption
+-uses TLS/SSL to encrypt web traffic
+-essential for secure transactions like online banking and e-commerce{-line_break-}SMB and CIFS{-tab-}server message block and common internet file system
+-PORT 445
+-facilitates file and printer sharing within Windows networks
+-SMB is widely used for resources sharing
+-CIFS is an older variant, less efficient and less secure{-line_break-}RDP{-tab-}remote desktop protocol
+-PORT 3389
+-provides remote access to computers using a graphical interface
+-used by system administrators for remote control and troubleshooting{-line_break-}TCP{-tab-}transmission control protocol
+-connection oriented protocol
+-ensures data integrity through acknowledgement and retransmission and the three-way handshake
+-ex: sending a certified letter that requires a signature upon delivery
+-SSH and HTTPS{-line_break-}three-way handshake{-tab-}-SYN: client sends a synchronization request to initiate communication
+-SYN-ACK: server responds to confirm readiness
+-ACK: client acknowledges and completes the handshake{-line_break-}UDP{-tab-}user datagram protocol
+-CONNECTIONLESS protocol that doesn't establish a connection or provide guarantees that the data will arrive to the intended destination
+-datagrams: data packets that are sent to the recipient without waiting for an acknowledgement to occur... we use this for speed and efficiency for video and audio streaming where a small loss of data isn't a big deal
+-DHCP, DNS{-line_break-}DNS hierarchy{-tab-}1. root level: highest level of the hierarchy and everything falls underneath it. represents by a dot at the end of domain names. directs queries to top level domain servers
+
+2.top-level domains (TLDs): common domains like .com. .gov, defines the category or geographical association of a domain
+
+3.second-level domains: usually purchased by a company or organization using a human readable name. ex: diontraining in diontraining.com
+
+4.subdomains: additional subdivisions under the second level domains. www in a URL is the subdomain
+
+5.host level: involves a specific device or server within the domain{-line_break-}FQDN{-tab-}fully qualified domain name
+-precise address of a specific device or service within the DNS -EX: www.diontraining.com (includes root, TLD, SLD, and subdomain)
+-ensures precise identification and avoids ambiguity in domain name resolution{-line_break-}DNS lookup methods{-tab-}recursive lookup:
+-DNS resolver takes full responsibility for finding the IP address
+-efficient for end users because the resolver handles all work, but it requires more resources on the resolver's side
+-the client requests an IP, and then resolver queries other DNS servers until it gets a complete answer
+-EX: using public DNS servers like 8.8.8.8
+
+iterative lookup:
+-the client resolver receives partial responses and continues querying other DNS servers
+-each server provides referrals to other authoritative DNS servers until the final IP address is found
+-commonly used in inter-server communication within the DNS hierarchy{-line_break-}DNS records{-tab-}store different types of resource records (RRs) to facilitate various functions{-line_break-}A record{-tab-}address record
+-maps a domain name to an IPv4 address
+-ex: diontraining.com > 192.168.1.1{-line_break-}AAAA Records{-tab-}quad A records
+-maps a domain name to an IPv6 address
+-EX: diontraining.com > 2001:db8::ff00:42:8329{-line_break-}CNAME records{-tab-}canonical name records
+-used to map one domain name to another
+-ex: diontraining.com > www.diontraining.com{-line_break-}MX record{-tab-}mail exchange records
+-specifies mail servers for handling emails
+-EX: mail.diontraining.com > 10 mailserver1.diontraining.com{-line_break-}NS record{-tab-}identifies authoritative DNS servers for a domain
+-EX: diontraining.com > ns1.diontraining.com{-line_break-}PTR record{-tab-}-resolves an IP address to a domain name (reverse lookup)
+-EX: 192.168.1.1 > diontraining.com{-line_break-}TXT record{-tab-}-stores text-based information for domain verification
+-SPF records for email validation{-line_break-}Root servers{-tab-}top of the DNS hierarchy, direct queries to appropriate TLD servers{-line_break-}TLD servers{-tab-}handle queries for top-level domains (ex: .com, .org){-line_break-}authoritative DNS servers{-tab-}-provide final answers for specific domains
+-hosted by domain owners (ns1.diontraining.com){-line_break-}recursive resolvers{-tab-}-handle client queries and perform recursive lookups
+-provided by ISPs or public services (Google DNS){-line_break-}DNS caching{-tab-}caching stores resolved IP addresses for a specified Time to Live (TTL) to reduce repeated queries
+-improves performance and reduces query loads on upstream servers
+-EX: when a website is accessed frequently, its IP is stored in cache for quick future retrieval{-line_break-}SPF{-tab-}sender policy framework
+-identifies authorized mail servers for sending emails on behalf of a domain
+-verifies that emails come from listed servers
+-flags unauthorized emails as spoofed or spam{-line_break-}DNS based spam management{-tab-}the use of specialized DNS TXT records to authenticate emails and protects domains from spam and spoofing through SPF, DKIM, DMARC frameworks{-line_break-}DKIM{-tab-}DomainKeys Identified Mail
+-verifies email integrity by ensuring that messages are not altered during transmission
+-adds a cryptographic signature to email headers
+-ensures email authenticity and protects against tampering{-line_break-}DMARC{-tab-}Domain-based Message Authentication, Reporting, and Conformance
+-specifies policies for handling emails that fail SPF or DKIM authentication
+-configured as a TXT record in DNS
+-instructs servers to reject, quarantine, or flag messages based on authentication results{-line_break-}VLAN{-tab-}allows for the logical separation of devices within the same physical network
+-divides devices into separate broadcast domains without requiring additional physical hardware{-line_break-}broadcast domains{-tab-}-a VLAN limits broadcast traffic to devices within the same VLAN
+-prevents unnecessary traffic from affecting other parts of the network{-line_break-}VLAN trunking{-tab-}combines the traffic from multiple VLANs so that it can be transmitted over a single physical connection
+-802.1Q protocol: add a 4-byte identifier to each Ethernet frame to specify its VLAN membership as it traverses the network
+-TPI: tag protocol identifier: used to identify the frame as tagged for VLAN use
+-TCI: tag control identifier: contains the VLAN ID for proper routing{-line_break-}VPN{-tab-}extends a private network across a public network and enables sending and receiving data across shared or public networks{-line_break-}site-to-site VPN{-tab-}connects two locations (branch office to headquarters) over the internet
+-secures traffic between locations using encryption{-line_break-}client-to-site VPN{-tab-}connecting a single remote user to a corporate network
+-secures data sent over public networks{-line_break-}clientless VPN{-tab-}provides secure access via a web browser without installing software or hardware clients
+-SSL or TLS for encrypted HTTPs connections
+-like using a VPN for netflix to use Canadian netflix{-line_break-}full tunnel VPN{-tab-}encrypts all traffic and routes it through the VPN to the headquarters
+-suitable for untrusted networks like hotel Wi-Fi or coffee shops{-line_break-}split tunnel VPN{-tab-}encrypts traffic destined for the corporate network but allows other traffic to bypass the VPN
+-reduce bandwidth usage on corporate network{-line_break-}SOHO{-tab-}small office/home office
+-using inexpensive all in one devices called wireless routers{-line_break-}SSL: secure socket layer{-tab-}provides cryptography and reliability using the upper layers of the OSI model 5, 6, 7, and is less secure{-line_break-}TLS: transport layer security{-tab-}provides secure web browsing over HTTPs{-line_break-}UTM: unified threat management{-tab-}blocks malicious traffic, scans spam, and filters network traffic{-line_break-}file and print servers{-tab-}facilitate resource sharing within a network by enabling users to access shared files (file servers) and share and manage print jobs (print servers){-line_break-}local network file and print servers{-tab-}-operate within an intranet or LAN
+-accessible to devices on the same network{-line_break-}file servers{-tab-}allow clients to R/W files to shared disk storage
+-commonly mapped as a network drive
+-EX: S:\ for shared drives in Windows{-line_break-}print servers{-tab-}-manage and prioritize print jobs from multiple users
+-ensure efficient utilization of shared printers{-line_break-}internet-based file and print servers{-tab-}-operate over a WAN or the internet
+-provide remote access to file storage or printing capabilities{-line_break-}windows-based file and print serves use what protocol/relies on{-tab-}NetBIOS protocol
+-PORTS 137, 139
+-provides name services and session management over TCP/IP
+
+SMB protocol
+-PORT 445
+-facilitates file and print sharing commonly used in Windows
+
+Samba
+-linux/unix implementation of SMB enables{-line_break-}internet based file servers: FTP{-tab-}PORT 20 (data transfer), 21 (control channel)
+-allows file uploads and downloads
+USE FTPS or SFTP{-line_break-}cloud-based print servers{-tab-}allow printing from remote locations
+-ex: HP cloud printing{-line_break-}web servers{-tab-}any server that provides access to a website{-line_break-}IIS: internet information services{-tab-}windows
+handles HTTP, HTTPS, and FTP traffic
+-provides extensible features and security integrations for Windows environments{-line_break-}apache{-tab-}windows, Mac, Unix, Linux
+-open source and widely used
+-supports dynamic content processing using modules{-line_break-}NGINX{-tab-}windows, mac, Unix, Linux
+-designed for high performance and scalability
+-serves as a reverse proxy, load balancer, and HTTP cache
+-preferred for handling high-traffic websites{-line_break-}web server request process{-tab-}-a client types a web address in the browser
+-the browser sends a GET request to the web server via HTTP or HTTPS
+-the web server responds by sending HTML, CSS, and JavaScript files to the browser
+-the browser processes these files to render the web page{-line_break-}FQDN: fully qualified domain name{-tab-}a complete domain name specifying the exact location of a resource within the DNS hierarchy
+-subdomain = www
+-second level domain = diontraining
+-top-level domain = .com{-line_break-}AAA servers{-tab-}authentication, authorization, and accounting servers
+-these servers ensure consistent policy enforcement across users and devices, improving network security and simplifying administration{-line_break-}authentication{-tab-}verifies the identity of users or devices attempting to access the network
+-something you know
+-something you have
+-something you are
+-something you do
+-somewhere you are{-line_break-}authorization{-tab-}all about defining the permissions that are allowed and enforcing policies against the user and their actions{-line_break-}accounting{-tab-}used to track and log all of the users activity on a network
+-login/logout times
+-accessed resources
+-performs actions and commands{-line_break-}RADIUS: remote authentication dial in user service{-tab-}defining the permissions that are allowed and enforcing policies against the user and their actions
+-EX: authenticating users accessing corporate Wi-Fi{-line_break-}TACACS+ terminal access controller access-control system plus{-tab-}track and log all of the user's activity on a network
+EX: granting admin access to a router for configuration changes{-line_break-}database servers{-tab-}specialized systems designed to store, organize, and retrieve data efficiently
+-centralize data management, improve security, and ensure easy access compared to distributed storage across multiple issues{-line_break-}relational databases{-tab-}use structured tables and are accessed through SQL, and are ideal for systems like inventory management and customer records{-line_break-}NoSQL databases{-tab-}handle unstructured or semi-structed data, which makes them more suitable for applications like real time analytics and social media platforms{-line_break-}In-memory databases{-tab-}store data in a server's RAM to achieve ultra-fast performance and are often used for caching or real time data processing{-line_break-}data storage{-tab-}the server must store the data in a structured or unstructured format using storage technologies
+-hard drives, SSDs{-line_break-}data processing{-tab-}the server will process the data by executing queries that allow users or applications to retrieve, update, or manipulate the data{-line_break-}data security{-tab-}the server will ensure that data across is properly secured through authentication mechanisms as well as encrypting the data to protect sensitive information
+-usernames and passwords{-line_break-}RBAC: role-based access control{-tab-}grant access based on user roles{-line_break-}firewall and network segmentation{-tab-}isolate databases from unauthorized access{-line_break-}NTP servers{-tab-}ensure accurate and synchronized time across devices in modern networks
+-a dedicated system that synchronize the time of devices across a network, ensuring consistency and accuracy{-line_break-}log synchronization{-tab-}ensures accurate timestamps for troubleshooting and forensic analysis{-line_break-}authentication support{-tab-}facilitates time sensitive protocols such as Kerberos and TLS{-line_break-}transaction accuracy{-tab-}provides precise timestamps for financial and business transactions{-line_break-}process scheduling{-tab-}enables automated tasks to execute at the correct times{-line_break-}NTP protocol overview{-tab-}-UDP-based communication
+-PORT 123
+-defined by RFC 5905
+-synchronization accuracy: achieves millisecond level precision{-line_break-}NTP stratum levels{-tab-}-STRATUM 0
+EX: atomic clocks, GPS clocks
+provides highly precise time but does not directly connect to networks
+
+-STRATUM 1
+receives time from stratum 0 devices
+ distributes accurate time to stratum 2 servers and network devices
+
+-STRATUM 2
+syncs with stratum 1 servers and provides time to internal network devices
+ public servers like time.nist.gov
+
+-STRATUM 3 and BELOW
+further distributes time within the network hierarchy
+ slight decrease in accuracy due to latency{-line_break-}NTP server implementation
+centralized model{-tab-}internal NTP servers' sync with external sources and distribute time to network devices{-line_break-}NTP server implementation
+peer-to-peer mode{-tab-}devices share time with each other, used in smaller environments{-line_break-}syslog servers{-tab-}protocol designed to allow network devices, software applications, and other systems to send event logs to a centralized server
+
+-tools for monitoring and auditing network activity
+-a protocol for sending event logs to a centralized server
+-helps monitor network health, troubleshoot issues, and maintain security
+-follows a client server model and is widely recognized as the standard for logging events in distributed systems
+-supported by most OS and networking devices{-line_break-}Priority Code: PRI{-tab-}calculated based on facility (identifies the type of service generating the log) and severity level (indicates the importance of the message){-line_break-}header{-tab-}-includes the timestamp and hostname of the device generating the message
+-provides context about when and where the event occurred{-line_break-}message body{-tab-}-contains details about the event
+-includes the source process and specific event-related information
+-offers actionable insights for administrators{-line_break-}proxy servers{-tab-}create a network connection between an end user's client machine and a remote resource such as a web server
+-act like liaisons between a client machine and a remote resource such as a web server
+-can be physical hardware appliances or software-based solutions within an infrastructure
+-provides faster speeds and efficiency, better security, and improved auditing capabilities{-line_break-}load balancers{-tab-}aka content switch
+-distributes incoming requests across a number of servers inside a server farm or a cloud infrastructure /across multiple server
+
+-distributes client requests to the most available server
+-improves response speed and resource efficiency
+-prevent self-imposed DoS due to server overload{-line_break-}Denial of Service: DoS and Distributed Denial of Service (DDoS) attacks{-tab-}-DoS: floods victim systems with requests to exhaust resources and cause system failures
+-DDoS: involves multiple machines simultaneously attacking a server{-line_break-}UTM: unified threat management{-tab-}integrates multiple security functions into a single appliance
+-provides a comprehensive approach to network security compared to traditional methods
+-reduces complexity by consolidating security features into one device{-line_break-}ACLs: access control lists{-tab-}rule sets applied to firewalls, routers, and other devices to permit or deny traffic based on predefined conditions
+-processed in a top-down order so that the first rule that matches a piece of traffic dictates the action taken for that traffic{-line_break-}key concepts of firewalls{-tab-}primary defense at the network boundary that inspects and controls traffic
+-prevents unauthorized access, monitors and filters traffic, enforces security policies
+-organizations use UTMs got a unified security solution instead of multiple standalone devices{-line_break-}ICS: industrial control systems{-tab-}provides automation and control for industrial processes using embedded devices
+EX: manufacturing plants, power generation facilities
+-naval ships with embedded control systems{-line_break-}Fieldbus technology{-tab-}digitial serial communication linking programmable logic controllers (PLCs){-line_break-}PLCs: programmable logic controllers{-tab-}-digital computers used to automate industrial processes
+-receive input for sensors and trigger actions
+-control machinery by opening or closing valves, adjusting temperatures{-line_break-}HMI: human machine interface{-tab-}-provides interaction between human operation and ICS systems
+-can be local control panels or software based interfaces{-line_break-}control server{-tab-}governs the automation process and integrates all ICS components{-line_break-}SCADA: supervisory control and data acquisition{-tab-}manages large scale, geographically dispersed devices and equipment
+-used to monitor and control multiple ICS and DCS systems across various locations
+EX: implementation Smart meter systems used by utility companies to monitor energy usage remotely
+-transmit data to central SCADA servers for billing and monitoring{-line_break-}differences between ICS and SCADA{-tab-}ICS: focuses on a single plant or system
+DCS: interconnects ICS systems within a single facility
+SCADA: connects multiple ICS and DCS systems across a wide area network{-line_break-}embedded system{-tab-}computer system designed to perform specific and dedicated functions
+'One purpose and one purpose only'
+-often considered static environments where frequent changes are not made{-line_break-}RTOS: real-time operating system{-tab-}operating system designed for deterministic execution of operations to ensure consistent response times
+-EX: aircraft autopilot systems, nuclear power plants{-line_break-}SoC: system on a chipq{-tab-}processor that integrates multiple platform functionalities onto a single chip
+-I.E robot vacuum cleaners{-line_break-}capacitive touchscreens{-tab-}detect input by sensing changes in an electrostatic field caused by touch
+-cost effective but only support single-touch input{-line_break-}multi-touch screens{-tab-}-support multiple contact point simultaneously
+-enable advanced gestures such as pinch to zoom and multi-finger swipes
+-more expensive but widely used in smartphones and tablets{-line_break-}LCD: liquid crystal display{-tab-}uses liquid crystal material that changes properties when voltage is applied
+-contains RGB subpixels for red, green and blue
+-resolution is determined by the number of pixels per square inch
+-the backlight uses CCFL, a Cold cathode fluorescent lamp{-line_break-}LED: light emitting diode{-tab-}similar to LCD but uses an LED backlight instead of a CCFL
+-more efficient and results in thinner and lighter devices{-line_break-}TN: twisted nematic panels{-tab-}twists liquid crystals and offers fast response times
+-poor color accuracy and limited viewing angles
+-ideal for high-motion applications like gaming{-line_break-}IPS: in-plane switching{-tab-}rotates liquid crystals horizontally to improve color accuracy and viewing angles
+-can very at almost any angle{-line_break-}VA: vertical alignment panels{-tab-}offers the best contrast ratios by tilting the liquid crystals to block or allow the light to go through
+-slower response times and narrower viewing angles.
+ALL ABOUT CONTRAST{-line_break-}OLED: organic light emitting diode{-tab-}-does not require a backlight; each pixel emits its own light
+-provides superior contrast ratios with true black colors
+-thinner, lighter, and more power-efficient than LCDs
+-flexible materials enable foldable and rollable displays
+
+-lower brightness compared to LCDs
+-susceptible to burn-in, where static images can leave a permanent mark{-line_break-}mini-LED{-tab-}-uses thousands of tiny LEDs for highly localized backlighting zones
+-improves contrast and brightness compared to traditional LED-backlit LCD
+-bridges the gap between affordability and high-quality visuals
+-popular in premium laptops and tablets{-line_break-}display attributes{-tab-}define the quality and performance of a given screen
+-pixel density, refresh rates, screen resolution, and color gamut{-line_break-}pixel density{-tab-}the number of pixels of pixels packed into a given area (measured in PPI)
+-higher the picture density > sharper the images and texts are going to appear on the display{-line_break-}refresh rates{-tab-}measures how often a display updates the image per second (measured in Hz)
+-higher refresh rates improve fluidity but demand more processing power{-line_break-}screen resolution{-tab-}number of pixels displayed horizontally and vertically on any given screen
+-1920x1080 (1080p): standard
+-3840x2160(4K): higher detail and clarity, preferred for video editing and HD content
+-7680x4320 (8K): ultra-high resolution for professional and cinematic use{-line_break-}color gamut{-tab-}range of colors a display can produce
+-wider color gamut results in more vibrant and accurate colors
+-sRGB for standard for general use
+-HDR: high dynamic range: enhances brightness, contrast and color to create lifelike images{-line_break-}digitizer{-tab-}a layer between the protective glass and the display panel that converts analog tough input into digitial signals for software processing{-line_break-}accelerometer{-tab-}combination device that uses hardware and software to measure the velocity, rotation, and shaking of the mobile device
+-screen orientation, data loss prevention, gaming{-line_break-}gyroscope{-tab-}improved version of the accelerometer - detects pitch Y, roll X, and yaw Z
+EX: flight simulators, 360-degree video, shaking phone for flashlight{-line_break-}PRL: preferred roaming list{-tab-}contains all information about different cellular towers{-line_break-}hotspots and tethering{-tab-}-smartphones can function as mobile hotspots via
+USB tethering, bluetooth tethering, Wi-Fi sharing{-line_break-}GSM vs. CDMA networks{-tab-}GSM: global system for mobile communications
+-uses a SIM card for identity
+
+CDMA: code division multiple access
+-embedded electronic codes with no SIM cards{-line_break-}D89 cable{-tab-}D-shaped connector with 9 pins that is used to connect external serial devices like modems{-line_break-}UART (universal asynchronous receiver/transmitter){-tab-}device that allows to connect to a device and get information from it
+-software interface{-line_break-}port replicator{-tab-}mirrors the ports you have{-line_break-}docking station{-tab-}provides additional ports{-line_break-}USB-C{-tab-}-used in modern android smartphones, tablets, iPads, and some laptops
+-supports high speed data transfer and power delivery
+-small reversible connector with USB 3.0 or later speeds{-line_break-}USB 2.0 micro-B{-tab-}-used in older android devices for data and charging{-line_break-}USB 2.0 mini-B{-tab-}used in older devices for data transfer and charging{-line_break-}cloud based synchronizarion{-tab-}provides the access to the cloud from all devices and becomes the central repository of all data
+-EX: contacts, photos, mail{-line_break-}computer synchronization{-tab-}synchronizes directly to the desktop or laptop using a USB or Bluetooth connection{-line_break-}automobile synchronization{-tab-}linking mobile devices to car navigation or entertainment systems{-line_break-}EMM: enterprise mobility management{-tab-}a class of software designed to apply security policies for use on mobile devices
+-includes MDM and MAM{-line_break-}MDM: mobile device management{-tab-}sets device-level policies for authentication, feature use, and connectivity
+-software that allows to control the device
+-remote wipe, remote lock, device level authentication policies, feature control like microphone and wi-fi
+-EX: disabling device cameras to prevent unauthorized photography{-line_break-}MAM: mobile application management{-tab-}sets policies for apps that can process corporate data and prevents data transfer to personal apps without managing the entire device
+-like a sandbox type of solution, enabling employee access to corporate data on personal data
+-allowing only specific corporate apps to access company data{-line_break-}DLP controls: data loss prevention{-tab-}prevents unauthorized access, sharing, or exfiltration of sensitive data
+-identifies and blocks sensitive information{-line_break-}MFA{-tab-}1. knowledge factor: simplest form of authentication, something you know. pin or password
+2.possestion factor: something you have. tokens
+3.inherence factor: something you are. biometrics
+4. behavior factor: something you do
+5.location factor{-line_break-}location services{-tab-}1. coarse positioning: triangulates the location of the device using three or more cellular towers. oldest method
+
+2.GPS: space-based radio navigation system with 32 satellites in medium Earth orbit. provides precise information on position, speed, and time globally and in all weather conditions
+
+3.IPS: allows device to be used indoors and still be able to figure out where a user is. cell towers, Bluetooth beacons{-line_break-}geo-tracking{-tab-}tracking someone's location over a given amount of time based on where they are. example, photos shared online can reveal exact location and time of capture{-line_break-}inbound mail server{-tab-}POP3 or IMAP{-line_break-}outbound mail server{-tab-}SMTP{-line_break-}NFC (near-field communication) scanners{-tab-}-used to pair peripheral devices or establish connections with smartphones or tablets{-line_break-}infrastructure mode on a printer{-tab-}the printer connects to the network's access point, receives an IP address via DHCP, and functions like a wired device{-line_break-}Wi-Fi direct mode{-tab-}the printer acts as its own access point, broadcasts an SSID, and can be connected directly to the laptop to print wirelessly{-line_break-}print drivers{-tab-}software installed on a computer to translate print commands into a format the printer can understand{-line_break-}PDLs: page description language{-tab-}languages used by print drivers to convert digital content into print ready format{-line_break-}PCL: printer control language{-tab-}HP, proprietary and optimized for HP printers, supports scalable fonts, vector graphics, and color printing{-line_break-}firmware{-tab-}embedded software within the printer that manages its hardware operations
+-controls print speed, quality, connectivity, and internal processes{-line_break-}print servers{-tab-}either a software application or a hardware device that manages print requests and provides queue status information{-line_break-}centralized print servers:{-tab-}allow administrators to configure, troubleshoot, and control printers remotely{-line_break-}MMC: Microsoft management console{-tab-}allows users to centralize printer management tasks, share printers across the network, monitor print queues, and troubleshoot issues{-line_break-}print spooler{-tab-}organizes print jobs and communicates with the printer on behalf of the OS{-line_break-}OCR: optical character recognition software{-tab-}converts scanned text into digital documents that can be then manipulated using a word processing program{-line_break-}SMB: server message block{-tab-}Windows' version of file and print sharing in which scanning to a folder normally relies on{-line_break-}imaging drum{-tab-}creates the image on paper by holding an electrostatic charge, applied uniformly by the primary charge roller or corona wire{-line_break-}transfer belt/roller{-tab-}applies a positive charge to the paper that pulls the negatively charged toner particles from the imaging drum onto the paper{-line_break-}fuser assembly{-tab-}where the toner, which has been loosely applied to the paper, is permanently fused to the paper through the application of heat and pressure{-line_break-}pickup rollers{-tab-}responsible for picking up a single sheet of paper from the feed tray and sending it through the various stages of the printing process{-line_break-}paper separation pad{-tab-}creates friction that prevents more than one sheet of paper from entering the feed path at once{-line_break-}duplex assembly{-tab-}responsible for flipping the paper over after the first side has been printed to allow the second side to be printed without having to manually reinsert the paper{-line_break-}steps of electrophotographic printing{-tab-}1. processing: receive document > translate to PDL > process data > store image
+2. charging: the image drum is going to be prepared for printing by being uniformly charges
+3. exposing stage: the laser beams scans the drum and selectively neutralizes areas where the toner will later adhere
+4. developing: the toner is applied to the drum by coating the developing roller inside the toner cartridge and bringing it into close proximity with the drum
+5. transferring: transfer roller applies a positive charge to the paper, which attracts the negatively charged toner particles from the drum onto the paper
+6. fusing: the toner becomes permanently bonded to the paper as it passes between the heated fuser roller and a pressure roller, which together melt the toner and press it into the paper fibers
+7. cleaning: any remaining toner particles on the drum are cleaned off using a cleaning blade or brush and deposits them into a water toner container{-line_break-}printhead{-tab-}responsible for directing ink onto the paper
+-piezoelectric method: changes the shape of the nozzle in response to electrical voltage
+ -cartridges tend to last longer, no need to replace the printhead with each cartridge
+ -thermal method: heats the ink to form a bubble that bursts and sprays the ink{-line_break-}unidirectional printing{-tab-}the printhead applies ink only when moving in one direction, usually moving from left to right across the paper{-line_break-}bi-directional printing{-tab-}ink is applied in both directions- left to right and right to left- which speeds up the printing process since the printhead is able to print as it returns back to the left side of the page{-line_break-}CMYK{-tab-}cyan, magenta, yellow, black{-line_break-}troubleshooting methodology{-tab-}STEP 1: IDENTIFY THE PROBLEM
+STEP 2: ESTABLISH A THEORY
+ -burning smell: damaged processor or motherboard components
+ -grinding sound or clicking: something wrong with hard drive
+ -so spinning fan: power issue or broken fan
+STEP 3: TEST THE THOERY
+ -four possible outcomes
+ -theory is confirmed, not confirmed, lack skills or authority, unable to solve
+ -tier 1, 2, 3, 4
+STEP 4: ESTABLISH A PLAN OF ACTION
+ -repair, replace, workaround
+STEP 5: VERIFIYING SYSTEM FUNCTIONALITY
+ -implement preventative measures
+STEP 6: DOCUMENTATION{-line_break-}power issues{-tab-}-power button is not connected properly to the motherboard
+ -faulty wall outlet
+ -power cable to the computer is faulty
+ -power supply is faulty
+ -power cables from power supply to components are faulty
+ -incorrect voltage setting on power supply unit{-line_break-}post issues{-tab-}-power on self test: diagnostic program in firmware that checks hardware readiness to boot the PC
+ -processor, memory, input device, output device
+-checks the system before it boots up
+-POST tests include the ability to use an expansion card for more detailed information
+-if you use a POST test CARD, instead of hearing a beep for motherboard issue, these test cards indicate specifically what is wrong with the system
+ -POST text expansion cards identify which component on the motherboard is faulty and needs to be replaced{-line_break-}crash screens{-tab-}displays an error whenever the operating system has an issue
+-windows: blue screen of death
+-Mac: pinwheel of death
+-Linux: kernel panic{-line_break-}cooling issues{-tab-}-to determine if it's a thermal problem, check the system's thermal load and heat dissipation
+1. shut down the system
+2. boot into UEFI or BIOS
+ -UEFI or BIOS observations identify hardware issues or applications causing high temperature loads
+ -look at the temperature sensors inside of the system
+-if the CPU overbeats but the fan works, clean the processor, reapply thermal paste, and reattach the heat sink and fan
+-shutdowns or reboots indicate thermal issues, check cooling and environment{-line_break-}physical component damage{-tab-}-burning smell or smoke = overheating
+-make sure case and fan vents aren't clogged with dust or dirt
+-rancid smell = blown or burst compactor (regulates electricity to chips in a system){-line_break-}CMOS: complementary metal-oxide semiconductor{-tab-}non-volatile type of memory that stores the BIOS settings and is built into the motherboard{-line_break-}NVRAM: non-volatile RAM{-tab-}stores data without being refreshed{-line_break-}common boot errors and causes{-tab-}bootable device not found
+-boot order misconfiguration
+-storage device connection issues
+-boot sector corruption
+
+operating system not found
+-system cannot find OS boot files
+-corrupt bootloader or OS installation
+-incorrect boot order
+-deleted or damaged boot partition
+
+invalid drive specification
+-boot drive recognized but unreadable
+-incorrect partition table format
+-corrupt file system
+-damaged bootloader{-line_break-}SMART: self-monitoring analysis and reporting technology{-tab-}alerts the OS if there is a failure
+-monitors your hard drive and understands the health status of the drive{-line_break-}IOPS (input/output operations per second){-tab-}a metric that measures the number of R/W operations a drive can handle per second
+-defragmentation: reorganizes files and makes the drive orderly
+-deleted and rewriting causes fragmentation{-line_break-}exam tips{-tab-}-SMART is only for monitoring, not fixing issues
+-IOPS measures storage performance in terms of R/W operations
+-fragmentation affects HDDs, but not SSDs
+-overfilled SSDs slow down significantly, requiring free space
+-listening for clicking/grinding sounds can indicate HDD failure{-line_break-}exam tips with RAIDS{-tab-}-RAID 1, 5, and 10 provide redundancy and continue working in degraded states after a single drive failure
+-RAID 0 offers NO redundancy, and a single drive failure results in complete data loss
+-audible alarms are critical for immediate detection of RAID issues
+-array missing errors can be caused by cable failures, controller issues, or multiple drive failures
+-rebuilding performance degradation occurs during recovery and should be managed effectively
+-full RAID failure requires data restoration from backups{-line_break-}exam tips for video troubleshooting{-tab-}-digital cables result in total signal loss if damaged
+-analog cables may degrade gradually, showing partial color loss or screen distortion
+-check for source selection errors if a blank screen appears
+-HDCP handshake issues can often be resolved by power cycling devices and using high quality cables{-line_break-}port flapping{-tab-}caused by intermittent connectivity issue between the client and the network switch
+-the network interface status continually alternates between up and down states
+-happens with bad cabling, external interference, faulty client NIC{-line_break-}{-tab-}-{-line_break-}

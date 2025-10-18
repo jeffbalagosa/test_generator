@@ -1,6 +1,7 @@
 import random
 import socket
 from datetime import datetime
+from typing import List, Set
 
 # Format of the raw data: Each term (or question) and definition (or answer) pair is separated by "{-line_break-}" and the question and answer are separated by "{-tab-}" Example: "Term{-tab-}Definition{-line_break-}"
 raw_data = """Question 1{-tab-}Answer 1{-line_break-}Question 2{-tab-}Answer 2{-line_break-}Question 3{-tab-}Answer 3{-line_break-}Question 4{-tab-}Answer 4{-line_break-}Question 5{-tab-}Answer 5{-line_break-}Question 6{-tab-}Answer 6{-line_break-}Question 7{-tab-}Answer 7{-line_break-}Question 8{-tab-}Answer 8{-line_break-}Question 9{-tab-}Answer 9{-line_break-}Question 10{-tab-}Answer 10{-line_break-}Question 11{-tab-}Answer 11{-line_break-}Question 12{-tab-}Answer 12{-line_break-}Question 13{-tab-}Answer 13{-line_break-}Question 14{-tab-}Answer 14{-line_break-}Question 15{-tab-}Answer 15{-line_break-}Question 16{-tab-}Answer 16{-line_break-}Question 17{-tab-}Answer 17{-line_break-}Question 18{-tab-}Answer 18{-line_break-}Question 19{-tab-}Answer 19{-line_break-}Question 20{-tab-}Answer 20{-line_break-}"""
@@ -16,14 +17,32 @@ def format_test_data(raw_data):
     return formatted_test_data
 
 
-def select_random_items(source_list, count, exclude_indices=set()):
+def select_random_items(
+    candidates: List, count: int, exclude_indices: Set[int] = set()
+) -> List[int]:
     """
-    Selects a specified count of random items from a source list, excluding specified indices.
+    Selects a specified count of random items from a list of candidates, excluding specified indices.
+
+    Args:
+        candidates (List): The list of items to choose from.
+        count (int): The number of items to select.
+        exclude_indices (Set[int], optional): Indices to exclude from selection. Defaults to an empty set.
+
+    Returns:
+        List[int]: A list of selected item indices.
+
+    Raises:
+        ValueError: If the requested count exceeds the number of available items after exclusions.
     """
-    available_choices = [i for i in range(len(source_list)) if i not in exclude_indices]
-    selected_items = random.sample(
-        available_choices, min(count, len(available_choices))
-    )
+    available_count = len(candidates) - len(exclude_indices)
+    if count > available_count:
+        raise ValueError(
+            f"Requested count ({count}) exceeds available items ({available_count})"
+        )
+
+    weights = [0 if i in exclude_indices else 1 for i in range(len(candidates))]
+    selected_items = random.choices(range(len(candidates)), weights=weights, k=count)
+
     return selected_items
 
 

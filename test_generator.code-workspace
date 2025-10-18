@@ -1,0 +1,16 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "[python]": {
+            "editor.formatOnSave": true
+        },
+        "editor.formatOnSave": false,
+        "python.formatting.provider": "black",
+        "python.formatting.blackPath": "black"
+    }
+}
+

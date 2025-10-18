@@ -3,7 +3,18 @@ import socket
 from datetime import datetime
 from typing import List, Optional, Set
 
-from config import quizlet_export_data as raw_data
+from config import quizlet_export_file
+
+# Load the quizlet export data from the configured file path
+try:
+    with open(quizlet_export_file, "r", encoding="utf-8") as f:
+        raw_data = f.read()
+        # Trim a trailing separator if present to avoid an empty final pair
+        if raw_data.endswith("{-line_break-}"):
+            raw_data = raw_data[: -len("{-line_break-}")]
+except FileNotFoundError:
+    print(f"Error: Quizlet export file '{quizlet_export_file}' not found.")
+    raw_data = ""
 
 
 def format_test_data(raw_data):

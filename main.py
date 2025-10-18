@@ -150,4 +150,5 @@ def administer_test(formatted_test_data, num_questions=10):
     return percent_correct
 
 
-administer_test(format_test_data(raw_data))
+if __name__ == "__main__":
+    administer_test(format_test_data(raw_data))
